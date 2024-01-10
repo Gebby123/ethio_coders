@@ -10,7 +10,7 @@ function authMiddleware(req, res, next) {
       .json({ msg: "Authentication invalid" });
   }
   const token = authHeader.split(" ")[1];
-  
+
   try {
     const { username, userid } = jwt.verify(token, "secret");
     req.user = { username, userid };
